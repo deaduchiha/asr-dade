@@ -1,14 +1,15 @@
 import { usePageStore } from "@/app/providers";
+import { Button, Flex } from "@chakra-ui/react";
 
 const WeightPage = () => {
   const { nextPage, prevPage } = usePageStore((state) => state);
 
   return (
-    <>
-      <button onClick={() => nextPage()}>next page</button>
-      <br />
-      <button onClick={() => prevPage()}>prev page</button>
-    </>
+    <Flex>
+      <Button onClick={() => nextPage()}>next page</Button>
+
+      <Button onClick={() => prevPage()}>prev page</Button>
+    </Flex>
   );
 };
 
