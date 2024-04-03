@@ -5,7 +5,7 @@ const StartPage = () => {
 
   return (
     <>
-      <button onClick={() => nextPage()}>plus</button>
+      <button onClick={() => nextPage()}>next page</button>
     </>
   );
 };

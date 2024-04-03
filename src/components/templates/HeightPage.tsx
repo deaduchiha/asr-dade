@@ -1,12 +1,14 @@
 import { usePageStore } from "@/app/providers";
 
 const HeightPage = () => {
-  const { nextPage } = usePageStore((state) => state);
+  const { nextPage, prevPage } = usePageStore((state) => state);
 
   return (
-    <div>
-      <button onClick={() => nextPage()}>plus</button>
-    </div>
+    <>
+      <button onClick={() => nextPage()}>next page</button>
+      <br />
+      <button onClick={() => prevPage()}>prev page</button>
+    </>
   );
 };
 

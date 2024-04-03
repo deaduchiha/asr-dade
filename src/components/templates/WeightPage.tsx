@@ -1,11 +1,13 @@
 import { usePageStore } from "@/app/providers";
 
 const WeightPage = () => {
-  const { nextPage } = usePageStore((state) => state);
+  const { nextPage, prevPage } = usePageStore((state) => state);
 
   return (
     <>
-      <button onClick={() => nextPage()}>plus</button>
+      <button onClick={() => nextPage()}>next page</button>
+      <br />
+      <button onClick={() => prevPage()}>prev page</button>
     </>
   );
 };

@@ -15,13 +15,13 @@ const HomePage = () => {
     case 0:
       return <StartPage />; // start
     case 1:
-      return <GenderPage />; // second page
+      return <GenderPage />; // first page
     case 2:
-      return <WeightPage />; // third page
+      return <WeightPage />; // second page
     case 3:
-      return <HeightPage />; // fourth page
+      return <HeightPage />; // third page
     case 4:
-      return <ResultPage />; // fifth page
+      return <ResultPage />; // fourth page
   }
 };
 

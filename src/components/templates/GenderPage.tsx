@@ -5,9 +5,9 @@ const GenderPage = () => {
 
   return (
     <>
-      <button onClick={() => nextPage()}>plus</button>
+      <button onClick={() => nextPage()}>next page</button>
       <br />
-      <button onClick={() => prevPage()}>minus</button>
+      <button onClick={() => prevPage()}>prev page</button>
     </>
   );
 };
