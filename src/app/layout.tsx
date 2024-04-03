@@ -1,13 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import { Providers } from "./providers";
+import { fonts } from "./fonts";
 
 const APP_NAME = "asr-dade";
 const APP_DEFAULT_TITLE = "Asr Dade";
 const APP_TITLE_TEMPLATE = "Asr Dade - PWA App";
 const APP_DESCRIPTION = "Best PWA app in the world!";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -39,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={fonts.rubik.variable}>
         <Providers>{children}</Providers>
       </body>
     </html>
