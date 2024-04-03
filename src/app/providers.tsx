@@ -1,12 +1,15 @@
 "use client";
 
-import Header from "@/shared/header/Header";
-import { createPageStore } from "@/stores/page-store";
-import { theme } from "@/theme";
-import { TPageStore } from "@/types/pages";
-import { ChakraProvider, Container } from "@chakra-ui/react";
 import { createContext, useContext, useRef } from "react";
+import { ChakraProvider, Container } from "@chakra-ui/react";
+import { theme } from "@/theme";
+
+import { TPageStore } from "@/types/pages";
+import { createPageStore } from "@/stores/page-store";
 import { StoreApi, useStore } from "zustand";
+
+import Navigation from "@/shared/navigation/Navigation";
+import Header from "@/shared/header/Header";
 
 export const PageStoreContext = createContext<StoreApi<TPageStore> | null>(
   null
@@ -21,9 +24,16 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <PageStoreContext.Provider value={storeRef.current}>
       <ChakraProvider theme={theme}>
-        <Container h={"100svh"} maxH={"100svh"} maxW={"container.lg"}>
+        <Container
+          h={"100svh"}
+          maxH={"100svh"}
+          maxW={"container.xl"}
+          pos={"relative"}
+          bg={"#f8f9fa"}
+        >
           <Header />
           {children}
+          <Navigation />
         </Container>
       </ChakraProvider>
     </PageStoreContext.Provider>

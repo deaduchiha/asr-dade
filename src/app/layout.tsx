@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFFFFF",
+  themeColor: "#f8f9fa",
 };
 
 export default function RootLayout({
@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={fonts.rubik.variable}>
+      <body className={fonts.rubik.variable} style={{ background: "#f8f9fa" }}>
         <Providers>{children}</Providers>
       </body>
     </html>
