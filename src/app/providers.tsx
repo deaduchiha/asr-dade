@@ -8,7 +8,6 @@ import { TPageStore } from "@/types/pages";
 import { createPageStore } from "@/stores/page-store";
 import { StoreApi, useStore } from "zustand";
 
-import Navigation from "@/shared/navigation/Navigation";
 import Header from "@/shared/header/Header";
 
 export const PageStoreContext = createContext<StoreApi<TPageStore> | null>(
@@ -33,7 +32,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
         >
           <Header />
           {children}
-          <Navigation />
         </Container>
       </ChakraProvider>
     </PageStoreContext.Provider>
