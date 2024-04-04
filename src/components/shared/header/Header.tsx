@@ -7,7 +7,7 @@ const Header = () => {
   const { page } = usePageStore((state) => state);
 
   return (
-    <Flex alignItems={"center"} justifyContent={"space-between"}>
+    <Flex alignItems={"center"} justifyContent={"space-between"} p={3}>
       <Box as={HiHome} fontSize={"1.5rem"}></Box>
 
       <Heading textAlign={"center"} as={"h1"} fontSize={"1.5rem"}>

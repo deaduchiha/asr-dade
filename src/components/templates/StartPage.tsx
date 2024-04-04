@@ -13,7 +13,7 @@ const StartPage = () => {
 
   const [animation, setAnimation] = useState<any>({
     width: "100%",
-    height: "85%",
+    height: "80%",
     x: 0,
     y: 0,
     opacity: 1,
