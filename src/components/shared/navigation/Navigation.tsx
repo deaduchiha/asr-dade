@@ -1,6 +1,22 @@
-import { Button, Flex } from "@chakra-ui/react";
+import NavigationCard from "@/components/elements/navigation/NavigationCard";
+import { Flex } from "@chakra-ui/react";
+import {
+  FaUserCircle,
+  FaChartBar,
+  FaShoppingCart,
+  FaHome,
+} from "react-icons/fa";
+
+import { IoBodySharp } from "react-icons/io5";
 
 const Navigation = () => {
+  const data = [
+    { id: 1, title: "profile", icon: FaUserCircle },
+    { id: 2, title: "chart", icon: FaChartBar },
+    { id: 3, title: "", icon: IoBodySharp },
+    { id: 4, title: "shop", icon: FaShoppingCart },
+    { id: 5, title: "home", icon: FaHome },
+  ];
   return (
     <Flex
       pos={"absolute"}
@@ -13,15 +29,7 @@ const Navigation = () => {
       alignItems={"center"}
       justifyContent={"space-between"}
     >
-      {["profile", "chart", "start", "shop", "home"].map((d, index) =>
-        d !== "start" ? (
-          <Button key={index}>{d}</Button>
-        ) : (
-          <Button alignSelf={"flex-start"} key={d} top={-4} pos={"relative"}>
-            {d}
-          </Button>
-        )
-      )}
+      <NavigationCard data={data} />
     </Flex>
   );
 };
