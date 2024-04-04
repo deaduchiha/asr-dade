@@ -17,9 +17,9 @@ const NavButton = ({ icon }: { icon: IconType }) => {
       scale: [1, 1.5, 1.5, 1],
       rotate: [0, 170, -170, 0],
       borderRadius: [
-        "100px 100px 100px 100px",
+        "0 100px 100px 0",
         "100px 100px 100px 0",
-        "100px 100px 100px 100px",
+        "100px 0 100px 100px",
         "100px 100px 100px 100px",
       ],
       y: [10, 20, -40, -60],

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 import { useAnimateStyleState } from "@/stores/animate-start";

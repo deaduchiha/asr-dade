@@ -7,7 +7,6 @@ const GenderPage = () => {
   return (
     <Flex>
       <Button onClick={() => nextPage()}>next page</Button>
-      <Button onClick={() => prevPage()}>prev page</Button>
     </Flex>
   );
 };
