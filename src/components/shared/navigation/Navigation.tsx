@@ -27,7 +27,7 @@ const Navigation = () => {
       h={"100px"}
       bg={"#ffffff"}
       alignItems={"center"}
-      justifyContent={"space-between"}
+      justifyContent={"space-around"}
     >
       <NavigationCard data={data} />
     </Flex>
