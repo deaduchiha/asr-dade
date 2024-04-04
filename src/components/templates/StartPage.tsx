@@ -9,7 +9,7 @@ import Human from "../elements/start-page/Human";
 
 const StartPage = () => {
   const { nextPage } = usePageStore((state) => state);
-  const [glareColor, setGlareColor] = useState<string>("#000");
+  const [glareColor, setGlareColor] = useState<string>("#0077b6");
 
   const [animation, setAnimation] = useState<any>({
     width: "100%",

@@ -16,9 +16,9 @@ const Human = ({
       height={"80%"}
       pos={"relative"}
       onEnter={() => {
-        setGlareColor("#adb5bd");
+        setGlareColor("#90e0ef");
       }}
-      onLeave={() => setGlareColor("#000")}
+      onLeave={() => setGlareColor("#0077b6")}
     >
       <Box
         as={motion.svg}
