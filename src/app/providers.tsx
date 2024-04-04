@@ -9,6 +9,7 @@ import { createPageStore } from "@/stores/page-store";
 import { StoreApi, useStore } from "zustand";
 
 import Header from "@/shared/header/Header";
+import { AnimatePresence } from "framer-motion";
 
 export const PageStoreContext = createContext<StoreApi<TPageStore> | null>(
   null
@@ -23,16 +24,20 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <PageStoreContext.Provider value={storeRef.current}>
       <ChakraProvider theme={theme}>
-        <Container
-          h={"100svh"}
-          maxH={"100svh"}
-          maxW={"container.xl"}
-          pos={"relative"}
-          bg={"#f8f9fa"}
-        >
-          <Header />
-          {children}
-        </Container>
+        <AnimatePresence>
+          <Container
+            h={"100svh"}
+            p={0}
+            maxH={"100svh"}
+            overflow={"hidden"}
+            maxW={"full"}
+            pos={"relative"}
+            bg={"#f8f9fa"}
+          >
+            <Header />
+            {children}
+          </Container>
+        </AnimatePresence>
       </ChakraProvider>
     </PageStoreContext.Provider>
   );
