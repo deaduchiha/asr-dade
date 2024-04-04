@@ -9,30 +9,42 @@ import Human from "../elements/start-page/Human";
 
 const StartPage = () => {
   const { nextPage } = usePageStore((state) => state);
+  const [glareColor, setGlareColor] = useState<string>("#000");
 
   const [animation, setAnimation] = useState<any>({
+    width: "100%",
     height: "85%",
-    opacity: 1,
     x: 0,
     y: 0,
-    animationDuration: "0.7s",
-    transitionDuration: "0.7s",
-    transition: {},
+    opacity: 1,
+    transition: {
+      type: "tween",
+      duration: 2,
+      opacity: {
+        duration: 1,
+        height: 2,
+      },
+    },
   });
-  const [glareColor, setGlareColor] = useState<string>("#000");
 
   const nextHandler = () => {
     setAnimation({
+      width: "200px",
       height: "inherit",
-      x: -500,
-      y: 100,
+      x: 0,
+      y: 0,
       opacity: 0,
       transition: {
         type: "tween",
         duration: 2,
         opacity: {
           duration: 1,
-          height: 2,
+        },
+        height: {
+          duration: 0.5,
+        },
+        width: {
+          duration: 5,
         },
       },
     });
@@ -47,16 +59,14 @@ const StartPage = () => {
       <Flex
         as={motion.div}
         initial={{
-          height: "0%",
+          height: "0",
+          width: "full",
+          y: 700,
           opacity: 0,
-          x: -500,
-          animationDuration: "0.6 ease-in-out",
-          transitionDuration: "0.6s ease-in-out",
         }}
         animate={animation}
         justifyContent="center"
         alignItems="center"
-        width="full"
         flexDir={"column"}
       >
         <Human glareColor={glareColor} setGlareColor={setGlareColor} />
