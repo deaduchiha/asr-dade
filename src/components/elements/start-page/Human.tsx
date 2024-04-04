@@ -12,11 +12,11 @@ const Human = ({
   return (
     <Box
       as={Tilt}
-      width={{ base: "full", md: "600px" }}
-      height={"70%"}
+      width={"full"}
+      height={"90%"}
       pos={"relative"}
       onEnter={() => {
-        setGlareColor("#90e0ef");
+        setGlareColor("#001524");
       }}
       onLeave={() => setGlareColor("#0077b6")}
     >
@@ -25,7 +25,7 @@ const Human = ({
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
         width={"full"}
-        height={"80%"}
+        height={"90%"}
         viewBox="0 0 640.000000 1280.000000"
         preserveAspectRatio="xMidYMid meet"
         style={{ transition: "2s" }}

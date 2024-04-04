@@ -20,6 +20,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/templates/*": ["./src/components/templates/*"],
+      "@/elements/*": ["./src/components/elements/*"],
       "@/shared/*": ["./src/components/shared/*"],
       "@/stores/*": ["./src/stores/*"]
     }
