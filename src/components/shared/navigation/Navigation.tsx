@@ -13,9 +13,9 @@ const Navigation = () => {
       alignItems={"center"}
       justifyContent={"space-between"}
     >
-      {["profile", "chart", "start", "shop", "home"].map((d) =>
+      {["profile", "chart", "start", "shop", "home"].map((d, index) =>
         d !== "start" ? (
-          <Button key={d}>{d}</Button>
+          <Button key={index}>{d}</Button>
         ) : (
           <Button alignSelf={"flex-start"} key={d} top={-4} pos={"relative"}>
             {d}
