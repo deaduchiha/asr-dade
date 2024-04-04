@@ -1,12 +1,10 @@
-import { usePageStore } from "@/app/providers";
-import { Button, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import NextButton from "../elements/gender-page/NextButton";
 
 const GenderPage = () => {
-  const { nextPage, prevPage } = usePageStore((state) => state);
-
   return (
-    <Flex>
-      <Button onClick={() => nextPage()}>next page</Button>
+    <Flex position={"relative"} h={"calc(100svh - 58px)"}>
+      <NextButton />
     </Flex>
   );
 };

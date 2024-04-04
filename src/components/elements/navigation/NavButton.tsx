@@ -22,7 +22,7 @@ const NavButton = ({ icon }: { icon: IconType }) => {
         "100px 0 100px 100px",
         "100px 100px 100px 100px",
       ],
-      y: [10, 20, -40, -60],
+      y: [-50, -70, -40, 400],
     });
     setAnimateStyle({
       width: "200px",
