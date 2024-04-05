@@ -1,7 +1,7 @@
 import { THumanBody } from "@/types/human-body";
 
 const WomanBody = ({
-  data: { color = "#000", height = 600, width = 280 },
+  data: { color = "#000", height = 600, width = 200 },
 }: {
   data: Partial<THumanBody>;
 }) => {
