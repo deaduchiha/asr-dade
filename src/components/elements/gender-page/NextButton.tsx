@@ -20,7 +20,20 @@ const NextButton = () => {
     <>
       <Container maxW={"full"} h={"75%"}>
         <Flex justifyContent={"space-between"}>
-          <Button variant={"unstyled"} onClick={() => genderHandler("male")}>
+          <Button
+            as={motion.div}
+            initial={{
+              y: 500,
+              x: -300,
+            }}
+            animate={{
+              y: 0,
+              x: 0,
+            }}
+            transition={"0.9s ease-in-out"}
+            variant={"unstyled"}
+            onClick={() => genderHandler("male")}
+          >
             <ManBody
               data={{
                 color: gender === "male" ? "#219ebc" : "#000",
@@ -28,7 +41,20 @@ const NextButton = () => {
               }}
             />
           </Button>
-          <Button variant={"unstyled"} onClick={() => genderHandler("female")}>
+          <Button
+            as={motion.div}
+            initial={{
+              y: 500,
+              x: 300,
+            }}
+            transition={"0.9s ease-in-out"}
+            animate={{
+              x: 0,
+              y: 0,
+            }}
+            variant={"unstyled"}
+            onClick={() => genderHandler("female")}
+          >
             <WomanBody
               data={{
                 color: gender === "female" ? "#219ebc" : "#000",
