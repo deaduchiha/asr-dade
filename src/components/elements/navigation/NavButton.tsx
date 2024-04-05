@@ -3,7 +3,7 @@ import { IconType } from "react-icons";
 
 import { useAnimateStyleState } from "@/stores/animate-start";
 import { usePageStore } from "@/app/providers";
-import { motion } from "framer-motion";
+import { StyleKeyframesDefinition, motion } from "framer-motion";
 import { useState } from "react";
 
 const NavButton = ({ icon }: { icon: IconType }) => {
@@ -14,16 +14,14 @@ const NavButton = ({ icon }: { icon: IconType }) => {
 
   const nextPageHandler = () => {
     setAnimateBorder({
-      scale: [1, 1.5, 1.5, 1],
-      rotate: [0, 170, -170, 0],
-      borderRadius: [
-        "0 100px 100px 0",
-        "100px 100px 100px 0",
-        "100px 0 100px 100px",
-        "100px 100px 100px 100px",
-      ],
-      y: [-50, -70, -40, 400],
+      borderBottomLeftRadius: [0, 0, 100, 100, 100, 100],
+      borderTopRightRadius: [100, 100, 0, 0, 100, 100],
+      borderTopLeftRadius: [100, 100, 100, 100, 0, 0, 0, 0, 100, 100],
+      borderBottomRightRadius: [100, 100, 100, 100, 100, 100, 0, 0, 0, 0, 100],
+      scale: [1, 1, 1, 1, 1.5, 1.7, 1.7, 1.7],
+      y: [-20, 20, -40, -70, -10, 0, 10, 200],
     });
+
     setAnimateStyle({
       width: "200px",
       height: "inherit",
@@ -35,7 +33,7 @@ const NavButton = ({ icon }: { icon: IconType }) => {
 
     setTimeout(() => {
       nextPage();
-    }, 900);
+    }, 1000);
   };
 
   return (
@@ -77,18 +75,18 @@ const NavButton = ({ icon }: { icon: IconType }) => {
         as={motion.div}
         initial={{
           scale: 1,
-          borderRadius: "100%",
+          borderRadius: "100px 100px 100px 100px",
           width: "unset",
           y: 0,
         }}
         animate={animateBorder}
         bg={"#2d6a4f"}
         p={3}
-        borderRadius={"100px"}
         transition={"0.6s"}
         justifyContent={"center"}
-        // borderBottomLeftRadius={5}
-        // _hover={{ borderBottomLeftRadius: 5 }}
+        _hover={{
+          border: "5px solid #257250",
+        }}
       >
         <Box as={icon} fontSize={"1.7rem"} color={"#fff"} />
       </Flex>

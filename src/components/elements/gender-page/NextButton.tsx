@@ -21,6 +21,7 @@ const NextButton = () => {
       onClick={() => nextPage()}
       w={"fit-content"}
       m={"auto"}
+      borderRadius={"20px"}
       bg={"#2d6a4f"}
       colorScheme="green"
     >
