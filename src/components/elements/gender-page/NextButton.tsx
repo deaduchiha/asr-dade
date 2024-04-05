@@ -14,16 +14,8 @@ const NextButton = () => {
       animate={{
         y: -70,
       }}
-      pos={"absolute"}
-      bottom={0}
-      right={0}
-      left={0}
+      variant={"nextButton"}
       onClick={() => nextPage()}
-      w={"fit-content"}
-      m={"auto"}
-      borderRadius={"20px"}
-      bg={"#2d6a4f"}
-      colorScheme="green"
     >
       next page
     </Button>
