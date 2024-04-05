@@ -5,14 +5,20 @@ import { motion } from "framer-motion";
 import { usePageStore } from "@/app/providers";
 import ManBody from "@/svg/ManBody";
 import WomanBody from "@/svg/WomanBody";
+import { useHumanBodyData } from "@/stores/human";
 
 const NextButton = () => {
   const { nextPage } = usePageStore((state) => state);
-  const [gender, setGender] = useState("");
+
+  const {
+    bodyData: { gender },
+    setBodyData,
+  } = useHumanBodyData();
+
   const [widthHandler] = useMediaQuery("(min-width: 550px)");
 
   const genderHandler = (type: string) => {
-    setGender(type);
+    setBodyData({ gender: type });
   };
 
   const width = widthHandler ? 300 : 150;
