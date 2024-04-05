@@ -20,7 +20,11 @@ const NextButton = () => {
     <>
       <Container maxW={"full"} h={"75%"}>
         <Flex justifyContent={"space-between"}>
-          <Button variant={"unstyled"} onClick={() => genderHandler("male")}>
+          <Button
+            variant={"unstyled"}
+            onClick={() => genderHandler("male")}
+            _selection={{ bg: "red" }}
+          >
             <ManBody
               data={{
                 color: gender === "male" ? "#219ebc" : "#000",
