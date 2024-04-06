@@ -42,10 +42,10 @@ const ResultPage = () => {
         gender: {gender}
       </Text>
       <Text pos={"relative"} zIndex={4}>
-        height: {weight}cm
+        height: {height}cm
       </Text>
       <Text pos={"relative"} zIndex={4}>
-        weight: {height}kg
+        weight: {weight}kg
       </Text>
 
       <Box
