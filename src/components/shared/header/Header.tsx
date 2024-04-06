@@ -6,7 +6,9 @@ import { HiOutlineMenuAlt3, HiHome } from "react-icons/hi";
 const Header = () => {
   const { page } = usePageStore((state) => state);
 
-  return (
+  return page === 4 ? (
+    <></>
+  ) : (
     <Flex alignItems={"center"} justifyContent={"space-between"} p={3}>
       <Box as={HiHome} fontSize={"1.5rem"}></Box>
 

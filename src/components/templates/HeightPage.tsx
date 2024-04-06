@@ -16,7 +16,7 @@ const HeightPage = () => {
   const width = widthHandler ? 250 : 190;
 
   const nextHandler = () => {
-    setBodyData({ height: value1 });
+    setBodyData({ weight: value1 });
     nextPage();
   };
 

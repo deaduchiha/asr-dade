@@ -10,8 +10,8 @@ export type TPageActions = {
 export enum PAGES {
   "HOME",
   "GENDER",
-  "WEIGHT",
   "HEIGHT",
+  "WEIGHT",
   "RESULT",
 }
 

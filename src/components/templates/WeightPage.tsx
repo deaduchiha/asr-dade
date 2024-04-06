@@ -18,7 +18,7 @@ const WeightPage = () => {
   const { bodyData, setBodyData } = useHumanBodyData();
 
   const nextHandler = () => {
-    setBodyData({ weight: sliderValue });
+    setBodyData({ height: sliderValue });
     nextPage();
   };
 
