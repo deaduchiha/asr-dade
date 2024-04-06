@@ -8,15 +8,17 @@ import { useState } from "react";
 import CircularSlider from "react-circular-slider-svg";
 
 const HeightPage = () => {
-  const { nextPage, prevPage } = usePageStore((state) => state);
+  const { nextPage } = usePageStore((state) => state);
   const { bodyData, setBodyData } = useHumanBodyData();
   const [widthHandler] = useMediaQuery("(min-width: 550px)");
 
   const [value1, setValue1] = useState(20);
   const width = widthHandler ? 250 : 190;
-  console.log(value1);
 
-  const nextHandler = () => {};
+  const nextHandler = () => {
+    setBodyData({ height: value1 });
+    nextPage();
+  };
 
   return (
     <Flex pos={"relative"} h={"100svh"}>
@@ -52,7 +54,7 @@ const HeightPage = () => {
           }}
           arcColor="#000"
           arcBackgroundColor="orange"
-          size={400}
+          size={widthHandler ? 400 : 300}
         />
       </Box>
       <Button
