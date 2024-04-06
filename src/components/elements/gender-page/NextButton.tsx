@@ -23,6 +23,14 @@ const NextButton = () => {
 
   const width = widthHandler ? 300 : 150;
 
+  const nextPageHandler = () => {
+    if (gender) {
+      nextPage();
+    } else {
+      alert("please select your gender");
+    }
+  };
+
   return (
     <>
       <Container maxW={"full"} h={"75%"}>
@@ -81,7 +89,7 @@ const NextButton = () => {
           y: -70,
         }}
         variant={"nextButton"}
-        onClick={() => nextPage()}
+        onClick={nextPageHandler}
       >
         next page
       </Button>
