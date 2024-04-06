@@ -2,7 +2,7 @@ import { usePageStore } from "@/app/providers";
 import { useHumanBodyData } from "@/stores/human";
 import ManBody from "@/svg/ManBody";
 import WomanBody from "@/svg/WomanBody";
-import { Box, Button, Flex, useMediaQuery } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import CircularSlider from "react-circular-slider-svg";
@@ -35,6 +35,22 @@ const HeightPage = () => {
       }}
       transition={"0.8s"}
     >
+      <Text
+        m={"0 auto"}
+        as={"p"}
+        w={"fit-content"}
+        pos={"absolute"}
+        left={0}
+        right={0}
+        bg={"green.300"}
+        p={"5px 10px"}
+        borderRadius={4}
+      >
+        {value1}
+        <Text fontWeight={800} as={"span"}>
+          kg
+        </Text>
+      </Text>
       <Flex alignSelf={"center"} flex={1} justifyContent={"center"}>
         {bodyData.gender === "male" ? (
           <ManBody data={{ width }} />
@@ -58,15 +74,15 @@ const HeightPage = () => {
           startAngle={60}
           endAngle={300}
           angleType={{
-            direction: "ccw",
+            direction: "cw",
             axis: "-y",
           }}
           handle1={{
             value: value1,
             onChange: (v) => setValue1(v),
           }}
-          arcColor="#000"
-          arcBackgroundColor="orange"
+          arcColor="orange"
+          arcBackgroundColor="#000"
           size={widthHandler ? 400 : 300}
         />
       </Box>

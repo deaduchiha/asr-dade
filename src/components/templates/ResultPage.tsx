@@ -11,7 +11,7 @@ const ResultPage = () => {
       alignItems={"center"}
       spacing={10}
       justifyContent={"center"}
-      h={"100svh"}
+      h={"80svh"}
     >
       <Text>gender: {gender}</Text>
       <Text>weight: {weight}cm</Text>
