@@ -21,7 +21,20 @@ const HeightPage = () => {
   };
 
   return (
-    <Flex pos={"relative"} h={"100svh"}>
+    <Flex
+      pos={"relative"}
+      h={"100svh"}
+      as={motion.div}
+      initial={{
+        y: 200,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+      }}
+      transition={"0.8s"}
+    >
       <Flex alignSelf={"center"} flex={1} justifyContent={"center"}>
         {bodyData.gender === "male" ? (
           <ManBody data={{ width }} />
