@@ -2,21 +2,11 @@ import { usePageStore } from "@/app/providers";
 import { useHumanBodyData } from "@/stores/human";
 import ManBody from "@/svg/ManBody";
 import WomanBody from "@/svg/WomanBody";
-import {
-  Box,
-  Button,
-  Flex,
-  Slider,
-  SliderFilledTrack,
-  SliderMark,
-  SliderThumb,
-  SliderTrack,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Button, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 import { useState } from "react";
+import WeightSlider from "../elements/weight-page/WeightSlider";
 
 const WeightPage = () => {
   const { nextPage } = usePageStore((state) => state);
@@ -26,11 +16,6 @@ const WeightPage = () => {
   const width = widthHandler ? 250 : 190;
 
   const { bodyData, setBodyData } = useHumanBodyData();
-
-  const numbers = [
-    50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200,
-    210, 220,
-  ];
 
   const nextHandler = () => {
     setBodyData({ weight: sliderValue });
@@ -63,28 +48,7 @@ const WeightPage = () => {
             <WomanBody data={{ width }} />
           )}
         </Flex>
-        <Box p={4} pt={6}>
-          <Slider
-            defaultValue={120}
-            orientation="vertical"
-            minH={{ base: "90vh", sm: "80vh" }}
-            min={50}
-            max={220}
-            aria-label="slider-ex-6"
-            onChange={(val) => setSliderValue(val)}
-          >
-            {numbers.map((n) => (
-              <SliderMark key={n} value={n} mb="-8px" ml="-10" fontSize="sm">
-                {n}
-              </SliderMark>
-            ))}
-
-            <SliderTrack>
-              <SliderFilledTrack />
-            </SliderTrack>
-            <SliderThumb />
-          </Slider>
-        </Box>
+        <WeightSlider setSliderValue={setSliderValue} />
       </Flex>
       <Button
         as={motion.button}
