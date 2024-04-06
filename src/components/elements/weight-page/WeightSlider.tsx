@@ -6,6 +6,7 @@ import {
   SliderThumb,
   SliderTrack,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 const WeightSlider = ({
   setSliderValue,
@@ -17,7 +18,22 @@ const WeightSlider = ({
     210, 220,
   ];
   return (
-    <Box p={4} pt={6}>
+    <Box
+      p={4}
+      pt={6}
+      as={motion.div}
+      initial={{
+        y: 240,
+        x: 200,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        x: 0,
+        opacity: 1,
+      }}
+      transition={"0.6s"}
+    >
       <Slider
         defaultValue={120}
         orientation="vertical"

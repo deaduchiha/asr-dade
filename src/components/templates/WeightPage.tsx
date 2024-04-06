@@ -41,7 +41,22 @@ const WeightPage = () => {
             cm
           </Text>
         </Text>
-        <Flex alignSelf={"center"} flex={1} justifyContent={"center"} pl={14}>
+        <Flex
+          as={motion.div}
+          alignSelf={"center"}
+          flex={1}
+          justifyContent={"center"}
+          pl={14}
+          initial={{
+            y: 220,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={"0.9s"}
+        >
           {bodyData.gender === "male" ? (
             <ManBody data={{ width }} />
           ) : (
