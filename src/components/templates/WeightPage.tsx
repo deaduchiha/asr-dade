@@ -9,7 +9,7 @@ import { useState } from "react";
 import WeightSlider from "../elements/weight-page/WeightSlider";
 
 const WeightPage = () => {
-  const { nextPage, prevPage } = usePageStore((state) => state);
+  const { nextPage } = usePageStore((state) => state);
 
   const [sliderValue, setSliderValue] = useState(120);
   const [widthHandler] = useMediaQuery("(min-width: 550px)");
