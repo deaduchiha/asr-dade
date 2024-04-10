@@ -9,12 +9,6 @@ const ResultPage = () => {
     bodyData: { gender, height, weight },
   } = useHumanBodyData();
 
-  const animateStyle = {
-    background: "#fff",
-    opacity: 1,
-    transition: {},
-  };
-
   return (
     <Stack
       alignItems={"center"}

@@ -9,6 +9,14 @@ import { useHumanBodyData } from "@/stores/human";
 
 const NextButton = () => {
   const { nextPage } = usePageStore((state) => state);
+  const [animateStyle, setAnimateStyle] = useState<any>({
+    y: 0,
+    x: 0,
+  });
+
+  const [nextBAnimate, setNextBAnimate] = useState<any>({
+    y: -70,
+  });
 
   const {
     bodyData: { gender },
@@ -25,7 +33,19 @@ const NextButton = () => {
 
   const nextPageHandler = () => {
     if (gender) {
-      nextPage();
+      setAnimateStyle({
+        x: 200,
+        y: 300,
+        opacity: 0,
+      });
+
+      setNextBAnimate({
+        y: 40,
+      });
+
+      setTimeout((_) => {
+        nextPage();
+      }, 550);
     } else {
       alert("please select your gender");
     }
@@ -41,10 +61,7 @@ const NextButton = () => {
               y: 500,
               x: -300,
             }}
-            animate={{
-              y: 0,
-              x: 0,
-            }}
+            animate={animateStyle}
             transition={"0.9s ease-in-out"}
             variant={"unstyled"}
             onClick={() => genderHandler("male")}
@@ -63,10 +80,7 @@ const NextButton = () => {
               x: 300,
             }}
             transition={"0.9s ease-in-out"}
-            animate={{
-              x: 0,
-              y: 0,
-            }}
+            animate={animateStyle}
             variant={"unstyled"}
             onClick={() => genderHandler("female")}
           >
@@ -85,9 +99,7 @@ const NextButton = () => {
         initial={{
           y: 40,
         }}
-        animate={{
-          y: -70,
-        }}
+        animate={nextBAnimate}
         variant={"nextButton"}
         onClick={nextPageHandler}
       >

@@ -9,7 +9,7 @@ import { useState } from "react";
 import WeightSlider from "../elements/weight-page/WeightSlider";
 
 const WeightPage = () => {
-  const { nextPage } = usePageStore((state) => state);
+  const { nextPage, prevPage } = usePageStore((state) => state);
 
   const [sliderValue, setSliderValue] = useState(120);
   const [widthHandler] = useMediaQuery("(min-width: 550px)");
@@ -41,12 +41,19 @@ const WeightPage = () => {
             cm
           </Text>
         </Text>
-        <Flex
-          as={motion.div}
-          alignSelf={"center"}
-          flex={1}
-          justifyContent={"center"}
-          pl={14}
+        <motion.div
+          // as={motion.div}
+          style={{
+            flex: 1,
+            display: "flex",
+            alignSelf: "center",
+            paddingLeft: 14,
+            justifyContent: "center",
+          }}
+          // alignSelf={"center"}
+          // flex={1}
+          // justifyContent={"center"}
+          // pl={14}
           initial={{
             y: 220,
             opacity: 0,
@@ -55,14 +62,18 @@ const WeightPage = () => {
             y: 0,
             opacity: 1,
           }}
-          transition={"0.9s"}
+          transition={{
+            delay: 0.5,
+            type: "spring",
+            stiffness: 30,
+          }}
         >
           {bodyData.gender === "male" ? (
             <ManBody data={{ width }} />
           ) : (
             <WomanBody data={{ width }} />
           )}
-        </Flex>
+        </motion.div>
         <WeightSlider setSliderValue={setSliderValue} />
       </Flex>
       <Button

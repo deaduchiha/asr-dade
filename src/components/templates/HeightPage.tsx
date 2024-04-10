@@ -8,7 +8,7 @@ import { useState } from "react";
 import CircularSlider from "react-circular-slider-svg";
 
 const HeightPage = () => {
-  const { nextPage } = usePageStore((state) => state);
+  const { nextPage, prevPage } = usePageStore((state) => state);
   const { bodyData, setBodyData } = useHumanBodyData();
   const [widthHandler] = useMediaQuery("(min-width: 550px)");
 
@@ -35,6 +35,9 @@ const HeightPage = () => {
       }}
       transition={"0.8s"}
     >
+      <Button onClick={prevPage} pos={"absolute"}>
+        Prev
+      </Button>
       <Text
         m={"0 auto"}
         as={"p"}
