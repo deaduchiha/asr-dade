@@ -87,7 +87,6 @@ const WeightPage = () => {
           </Text>
         </Text>
         <motion.div
-          // as={motion.div}
           style={{
             flex: 1,
             display: "flex",
@@ -95,10 +94,6 @@ const WeightPage = () => {
             paddingLeft: 14,
             justifyContent: "center",
           }}
-          // alignSelf={"center"}
-          // flex={1}
-          // justifyContent={"center"}
-          // pl={14}
           initial={{
             y: 220,
             opacity: 0,

@@ -8,7 +8,7 @@ import { useState } from "react";
 import CircularSlider from "react-circular-slider-svg";
 
 const HeightPage = () => {
-  const { nextPage, prevPage } = usePageStore((state) => state);
+  const { nextPage } = usePageStore((state) => state);
   const { bodyData, setBodyData } = useHumanBodyData();
   const [widthHandler] = useMediaQuery("(min-width: 550px)");
 
@@ -21,23 +21,7 @@ const HeightPage = () => {
   };
 
   return (
-    <Flex
-      pos={"relative"}
-      h={"100svh"}
-      as={motion.div}
-      initial={{
-        y: 200,
-        opacity: 0,
-      }}
-      animate={{
-        y: 0,
-        opacity: 1,
-      }}
-      transition={"0.8s"}
-    >
-      <Button onClick={prevPage} pos={"absolute"}>
-        Prev
-      </Button>
+    <Flex pos={"relative"} h={"100svh"} as={motion.div} transition={"0.8s"}>
       <Text
         m={"0 auto"}
         as={"p"}
@@ -54,13 +38,27 @@ const HeightPage = () => {
           kg
         </Text>
       </Text>
-      <Flex alignSelf={"center"} flex={1} justifyContent={"center"}>
+      <motion.div
+        style={{
+          display: "flex",
+          alignSelf: "center",
+          flex: 1,
+          justifyContent: "center",
+        }}
+        initial={{ x: -70, y: 0, opacity: 0 }}
+        animate={{
+          x: 0,
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ delay: 0, type: "spring", stiffness: 30 }}
+      >
         {bodyData.gender === "male" ? (
           <ManBody data={{ width }} />
         ) : (
           <WomanBody data={{ width }} />
         )}
-      </Flex>
+      </motion.div>
 
       <Box
         w="fit-content"
