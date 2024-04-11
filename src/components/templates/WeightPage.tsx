@@ -10,16 +10,61 @@ import WeightSlider from "../elements/weight-page/WeightSlider";
 
 const WeightPage = () => {
   const { nextPage } = usePageStore((state) => state);
+  const [widthHandler] = useMediaQuery("(min-width: 550px)");
+  const { bodyData, setBodyData } = useHumanBodyData();
+  const [sliderAnimate, setSliderAnimate] = useState<any>({
+    x: 0,
+    opacity: 1,
+  });
+  const [bodyAnimate, setBodyAnimate] = useState<any>({
+    y: 0,
+    opacity: 1,
+  });
+
+  const [bodyTransition, setBodyTransition] = useState({
+    delay: 0.5,
+    type: "spring",
+    stiffness: 30,
+  });
+
+  const [sliderTransition, setSliderTransition] = useState({
+    delay: 0.8,
+    type: "spring",
+    stiffness: 50,
+  });
 
   const [sliderValue, setSliderValue] = useState(120);
-  const [widthHandler] = useMediaQuery("(min-width: 550px)");
   const width = widthHandler ? 250 : 190;
-
-  const { bodyData, setBodyData } = useHumanBodyData();
 
   const nextHandler = () => {
     setBodyData({ height: sliderValue });
-    nextPage();
+
+    setSliderAnimate({
+      x: 100,
+      opacity: 0,
+    });
+
+    setBodyAnimate({
+      x: -70,
+      y: 0,
+      opacity: 0,
+    });
+
+    setBodyTransition({
+      delay: 0,
+      type: "spring",
+      stiffness: 30,
+    });
+
+    setSliderTransition({
+      delay: 0,
+      type: "spring",
+      stiffness: 50,
+    });
+
+    setTimeout((_) => {
+      nextPage();
+    }, 540);
   };
 
   return (
@@ -58,15 +103,8 @@ const WeightPage = () => {
             y: 220,
             opacity: 0,
           }}
-          animate={{
-            y: 0,
-            opacity: 1,
-          }}
-          transition={{
-            delay: 0.5,
-            type: "spring",
-            stiffness: 30,
-          }}
+          animate={bodyAnimate}
+          transition={bodyTransition}
         >
           {bodyData.gender === "male" ? (
             <ManBody data={{ width }} />
@@ -74,7 +112,11 @@ const WeightPage = () => {
             <WomanBody data={{ width }} />
           )}
         </motion.div>
-        <WeightSlider setSliderValue={setSliderValue} />
+        <WeightSlider
+          sliderAnimate={sliderAnimate}
+          setSliderValue={setSliderValue}
+          sliderTransition={sliderTransition}
+        />
       </Flex>
       <Button
         as={motion.button}

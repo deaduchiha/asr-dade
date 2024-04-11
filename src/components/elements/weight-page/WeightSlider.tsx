@@ -1,36 +1,27 @@
 import {
-  Box,
   Slider,
   SliderFilledTrack,
   SliderMark,
   SliderThumb,
   SliderTrack,
-  chakra,
 } from "@chakra-ui/react";
-import { isValidMotionProp, motion } from "framer-motion";
-
-const ChakraBox = chakra(motion.div, {
-  shouldForwardProp: isValidMotionProp,
-});
-
-const transitionStyle = {
-  transition: {
-    delayChildren: 0.5,
-    staggerDirection: -1,
-  },
-};
-
-console.log({ ...transitionStyle });
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const WeightSlider = ({
   setSliderValue,
+  sliderAnimate,
+  sliderTransition,
 }: {
   setSliderValue(val: number): void;
+  sliderAnimate: {};
+  sliderTransition: {};
 }) => {
   const numbers = [
     50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200,
     210, 220,
   ];
+
   return (
     <motion.div
       // p={4}
@@ -41,11 +32,9 @@ const WeightSlider = ({
         x: 200,
         opacity: 0,
       }}
-      animate={{
-        x: 0,
-        opacity: 1,
-      }}
-      transition={{ delay: 0.8, type: "spring", stiffness: 50 }}
+      animate={sliderAnimate}
+      // transition={{ delay: 0.8, type: "spring", stiffness: 50 }}
+      transition={sliderTransition}
     >
       <Slider
         defaultValue={120}
